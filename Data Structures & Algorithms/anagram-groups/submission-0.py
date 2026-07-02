@@ -1,17 +1,12 @@
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        groups= {}
-
-        for st in strs:
-            key = "".join(sorted(st))
+        hmap= {}
         
-            if key not in groups:
-                groups[key]= []
-
-            groups[key].append(st)
-    
-        return list(groups.values())
+        for s in strs:
+            key = "".join(sorted(s))
+            if key in hmap:
+                hmap[key].append(s)
+            else:
+                hmap[key] = [s]
         
-        
-
-        
+        return list(hmap.values())
